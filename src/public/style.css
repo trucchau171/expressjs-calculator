@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+.calc {
+    width: 300px;
+    background-color: rgb(212, 212, 247);
+    margin: 75px auto;
+    border-radius: 26px;
+
+}
+
+.calc-screen {
+    width: 100%;
+    padding: 34px 16px 16px;
+}
+
+.calc-input {
+    width: 100%;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.calc-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.calc-btn {
+    width: 17%;
+    margin-bottom: 24px;
+}
