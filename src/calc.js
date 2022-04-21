@@ -9,20 +9,32 @@ app.use(express.static(path.join(__dirname,'public')));
 
 //HTTP logger
 
-app.use(morgan('combined'));
-
+// app.use(morgan('combined'));
 //template engine
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, '\\resources\\views'));
+app.use(express.urlencoded({extended:false}))
 
 
-// app.set('view engine', 'ejs');
-// app.set('views', path.join(__dirname, 'views'));
+app.get('/login',(req,res)=>
+{
+  res.render('login');
+})
 
-// console.log("PATH:", path.join(__dirname, '\\resources\\views'));
-app.get('/calculator', (req, res) => {
+app.post('/login',(req,res)=>
+{
+  if(req.body.email==='admin@' && req.body.password==='admin')
+  res.redirect('home')
+  
+  else
+  {
+    res.redirect('login');
+  }
+})
+
+app.get('/home', (req, res) => {
     let output = "";
     if (req.query.hasOwnProperty('input')){
       try {
